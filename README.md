@@ -38,3 +38,14 @@ mv origin/* target
 shopt -s dotglob
 ```
 bash在文件名扩展的结果中包括以点（.）开头的文件名
+
+## iphone内容超入滚动区域显示空白
+但块状区域内容过多时，在iphone浏览器会显示空白，但区域是能交互的，例如button可以点击。
+
+```
+document.querySelector('element').parentElement.style.display = 'none';
+document.querySelector('element').parentElement.style.display = 'block';
+```
+
+在stackoverflow解决方案   
+<https://stackoverflow.com/questions/17582439/webkit-overflow-scrolling-touch-large-content-gets-cut-off-when-specifying-a>
