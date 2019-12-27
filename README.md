@@ -4,6 +4,19 @@
 + 详情
 + 技术标签
 
+### 全屏与锁定旋转
+浏览器**Full Screen**API能控制标签全屏，但必须要htmlDocument对象调用。
+
+```
+//例如想video标签全屏 
+document.querySelector('video').requestFullscreen();
+
+//直接使用变量保存方法会失败
+var fullScreen = document.querySelector('video').requestFullscreen;
+fullScreen(); //typeerror
+```
+浏览器有**lockOrientation**操作屏幕旋转，但只能在andriod机型以及全屏使用。
+
 ### poster andriod不生效
 在andriod系统 poster显示黑色    
 需要添加 ``x5-video-player-type``
