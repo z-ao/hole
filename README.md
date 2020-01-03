@@ -4,6 +4,35 @@
 + 详情
 + 技术标签
 
+### 移动页跳转到App
+接到一个需求，需要移动页跳转到App。这时候需要用到**DeepLink**技术。    
+通过调研，发现不是接入个连接那么简单。会遇到几种特殊情况。   
+
++ **连接在微信被拦截**     
+  微信不支持他不信任的页面直接打开App，所以做了拦截。但我们可以跳转到应用宝，   
+  然后点击直接跳转到应用商店下载或者引导用户打开浏览器访问，在浏览器跳转App。
++ **用户没有安装App**    
+  浏览器没有提供设备有没有安装对应App的接口。但可以使用取巧的方法   
+
+  ```
+  方案一
+  location.href = deepLink; //如果下载了App，设备自动识别成功，直接跳转。
+  //如果没有下载，执行下面方法，跳转到下载App页面
+  setTimeout(function(){
+           location.href = downloadUrl 
+  }, 0)
+  弊端：如果下载了app，会同时打开app与shop
+  
+  方案二
+  location.href = deepLink; //页面打开立刻跳转
+  //如果没有下载，跳转失败，引导用户点击跳转到shop
+  <a href="javascript:;" click="download"></a>
+  function download() {
+  		location.href = downloadUrl;
+  }
+  ``` 
+  
+
 ### 全屏与锁定旋转
 浏览器**Full Screen**API能控制标签全屏，但必须要htmlDocument对象调用。
 
