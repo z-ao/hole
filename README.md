@@ -4,6 +4,14 @@
 + 详情
 + 技术标签
 
+### web推流
+现在推流技术有，RTMP，Hls，WebRtc
+
++ RTMP需要依赖Flash，不兼容手机，Tcp流速度比Hls快。第三库 [rtmp-streamer](https://github.com/chxj1992/rtmp-streamer/blob/master/rtmp-streamer.js)
++ Hls不支持web推流
++ WebRtc支持端对端传二进制数据，但需要服务器支持把二进制转对应数据格式(m3u8,flv)
+
+
 ### 移动页跳转到App
 接到一个需求，需要移动页跳转到App。这时候需要用到**DeepLink**技术。    
 通过调研，发现不是接入个连接那么简单。会遇到几种特殊情况。   
