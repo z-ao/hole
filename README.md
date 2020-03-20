@@ -4,6 +4,20 @@
 + 详情
 + 技术标签
 
+### 手机端后退不获取HTML
+最近在一些app内的webview，在后退的时候不用发送HTML请求，这导致数据不同步的问题。    
+但浏览器提供**pageshow**事件，该事件在onload之后触发。
+
+```
+//persisted 为 true 表明从缓存获取
+//performance.navigation.type 为 2 表明是后退操作
+window.addEventListener('pageshow',function(event){
+    if(event.persisted || (window.performance && window.performance.navigation.type === 2)){
+        window.location.reload();
+    }
+},false);
+```
+
 ### web推流
 现在推流技术有，RTMP，Hls，WebRtc
 
