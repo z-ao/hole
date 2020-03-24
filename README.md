@@ -4,6 +4,11 @@
 + 详情
 + 技术标签
 
+### ios applink不生效
+如果**appLink**配置的路径是***baidu.com/app/link***，那么在***baidu.com***域名下使用**appLink**，不会生效。    
+因为Ios有限制，必须要跨越才生效，   
+**appLink**配置在***baidu.com***域名，那么只会要除***baidu.com***的其他域名生效。eg，***m.baidu.com***、***music.baidu.com***。
+
 ### 手机端后退不获取HTML
 最近在一些app内的webview，在后退的时候不用发送HTML请求，这导致数据不同步的问题。    
 但浏览器提供**pageshow**事件，该事件在onload之后触发。
