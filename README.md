@@ -4,6 +4,44 @@
 + 详情
 + 技术标签
 
+### 第三方浏览器劫持video的控制栏
+当页面运行在qq、ucApp这些第三方浏览器，有可能video标签被劫持，替换成App的逻辑。      
+但这些与业务出现冲突。更加严峻的是，会被插入广告、给私密视频提供下载逻辑。    
+
+最好的方案是，联系浏览器厂商，把网站加入白名单里，防止被劫持。    
+降级的方案是，使用canvas实现video功能。（但对性能和体验会有影响）    
+在降级的方案，调整业务逻辑，例如私密视频只播一小段，然后引导用户使用其他客户端。    
+
+碎碎念   
+个别手机限制，不能在video是最高层级，不行有任何模块遮挡。   
+如果个别原生浏览器不支持controlsList（定义媒体元素上显示的控件），可以试style的伪类是否生效。   
+
+```
+video::-webkit-media-controls-enclosure {
+    overflow: hidden !important;
+    -webkit-appearance: none;
+}
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px);
+    display: none !important;
+    -webkit-appearance: none;
+}
+video::-webkit-media-controls-start-playback-button {
+    display:none !important;
+    -webkit-appearance: none;
+}
+video::-webkit-media-controls {
+    display:none !important;
+    -webkit-appearance: none;
+}
+
+video::--webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none;
+}
+```    
+
+
 ### ios applink不生效
 如果**appLink**配置的路径是***baidu.com/app/link***，那么在***baidu.com***域名下使用**appLink**，不会生效。    
 因为Ios有限制，必须要跨越才生效，   
