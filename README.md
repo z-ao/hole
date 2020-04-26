@@ -4,6 +4,28 @@
 + 详情
 + 技术标签
 
+### webpack动态加载
+动态加载可以减小初始包体积。但语法与es6相似，造成困惑。  
+
+```
+import _ from 'lodash' // es6引入方式
+import('lodash').then(_ => {
+    // Do something...
+}) //webpack动态加载方式，注意返回Promise
+
+//其他动态加载方式
+require.ensure(['lodash'], function(require) { //CommonJS
+    // Do something...
+});
+
+define(['lodash'], function(_) { //AMD  
+    // Do something...
+})
+```
+
+文档地址: https://www.webpackjs.com/guides/code-splitting/#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5-dynamic-imports-  
+
+
 ### 第三方浏览器劫持video的控制栏
 当页面运行在qq、ucApp这些第三方浏览器，有可能video标签被劫持，替换成App的逻辑。      
 但这些与业务出现冲突。更加严峻的是，会被插入广告、给私密视频提供下载逻辑。    
