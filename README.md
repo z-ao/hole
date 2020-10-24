@@ -4,6 +4,16 @@
 + 详情
 + 技术标签
 
+### 微信浏览器视频自动全屏播放
+微信浏览器，默认会劫持页面的video容器，然后全屏播放。   
+但文档提示在标签里加上特定的属性，就可以取消劫持。    
+后来发现，原来android和ios的属性不一致。
+
+```
+<video x5-playsinline="true"></video> //ios
+<video x5-video-player-type="h5-page"></video> //android
+```
+
 ### webpack动态加载
 动态加载可以减小初始包体积。但语法与es6相似，造成困惑。  
 
