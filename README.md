@@ -4,6 +4,16 @@
 + 详情
 + 技术标签
 
+### python安装失败chatterbot
+使用pip3和pip安装chatterbot失败，
+后来使用python -m pip install chatterbot就可以运行。
+
+原因是本地同时存在多个 python 解释器，导致python与pip版本不一致导致。
+
+### 微信小程序hidden不生效
+hidden属性只对没有设置 ***display*** 生效，   
+样式设置 ***display*** 导致hidden属性失效。
+
 ### 微信浏览器视频自动全屏播放
 微信浏览器，默认会劫持页面的video容器，然后全屏播放。   
 但文档提示在标签里加上特定的属性，就可以取消劫持。    
