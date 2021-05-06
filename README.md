@@ -4,6 +4,14 @@
 + 详情
 + 技术标签
 
+### 父元素设置overflow里border-radius不生效
+在safari里，设置了圆角，没有把子元素超出的区域剪切掉
+
+```
+方案，使用transform
+transform: rotate(0);
+```
+
 ### python安装失败chatterbot
 使用pip3和pip安装chatterbot失败，
 后来使用python -m pip install chatterbot就可以运行。
