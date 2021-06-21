@@ -4,6 +4,17 @@
 + 详情
 + 技术标签
 
+### mysql锁表
+接口一直在等待状态，没有与数据库对接成功
+
+```
+select * from information_schema.innodb_trx; //查看所有事务
+kill 事务id;
+
+//更多
+show processlist; 查看进程
+```
+
 ### 父元素设置overflow里border-radius不生效
 在safari里，设置了圆角，没有把子元素超出的区域剪切掉
 
